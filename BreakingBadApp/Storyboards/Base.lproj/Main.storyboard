@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +58,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="157.5" id="MQN-6I-xAW" customClass="CharacterCell" customModule="BreakingBadApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="428" height="157.5"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="157.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MQN-6I-xAW" id="weo-2p-WuG">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="157.5"/>
@@ -128,6 +129,7 @@
                                     <outlet property="nickNameLabel" destination="5iB-bD-jhf" id="bsT-ka-t0e"/>
                                     <outlet property="occupationCharacterLabel" destination="pMD-iG-Xpn" id="c90-VG-3bU"/>
                                     <outlet property="statusCharacterLabel" destination="HC3-rQ-t7a" id="8TV-76-MGi"/>
+                                    <segue destination="Cwe-8s-Wb1" kind="show" id="49Q-Hx-8Vc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -137,20 +139,102 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Breaking Bad Characters" id="lK3-K3-7AC"/>
+                    <navigationItem key="navigationItem" title="Breaking Bad Characters" id="lK3-K3-7AC">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="T9T-gf-ufw"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdC-3y-Lao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2683.125" y="92.957746478873247"/>
         </scene>
+        <!--DetailVC-->
+        <scene sceneID="ED7-Ws-se9">
+            <objects>
+                <viewController id="Cwe-8s-Wb1" customClass="DetailVC" customModule="BreakingBadApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NgW-xF-h6s">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="sQF-mj-qqL">
+                                <rect key="frame" x="100" y="474" width="228" height="289"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Character" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsX-4d-jWT">
+                                        <rect key="frame" x="0.0" y="0.0" width="228" height="25.333333333333332"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="228" id="ekj-8w-lCl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NickName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnv-Dl-Z5J">
+                                        <rect key="frame" x="0.0" y="69.333333333333371" width="228" height="25.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="228" id="kge-5H-VVD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-T1-83g">
+                                        <rect key="frame" x="0.0" y="138.66666666666663" width="228" height="25.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="228" id="WA6-Dd-NaC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8G4-nq-87b">
+                                        <rect key="frame" x="0.0" y="208" width="228" height="81"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="81" id="EXc-pT-Cu5"/>
+                                            <constraint firstAttribute="width" constant="228" id="fk1-f1-515"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EtL-oa-eQa">
+                                <rect key="frame" x="20" y="88" width="388" height="247"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DMx-wP-Xem"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sQF-mj-qqL" firstAttribute="top" secondItem="EtL-oa-eQa" secondAttribute="bottom" constant="139" id="11L-va-lLv"/>
+                            <constraint firstItem="DMx-wP-Xem" firstAttribute="trailing" secondItem="EtL-oa-eQa" secondAttribute="trailing" constant="20" id="2bE-VT-dPi"/>
+                            <constraint firstItem="EtL-oa-eQa" firstAttribute="centerX" secondItem="NgW-xF-h6s" secondAttribute="centerX" id="8pV-HE-vaE"/>
+                            <constraint firstItem="DMx-wP-Xem" firstAttribute="bottom" secondItem="sQF-mj-qqL" secondAttribute="bottom" constant="80" id="SwC-9O-RLF"/>
+                            <constraint firstItem="EtL-oa-eQa" firstAttribute="top" secondItem="DMx-wP-Xem" secondAttribute="top" id="VxC-Lg-7to"/>
+                            <constraint firstItem="EtL-oa-eQa" firstAttribute="leading" secondItem="DMx-wP-Xem" secondAttribute="leading" constant="20" id="j99-So-blm"/>
+                            <constraint firstItem="sQF-mj-qqL" firstAttribute="centerX" secondItem="NgW-xF-h6s" secondAttribute="centerX" id="pP3-vh-K6b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vCh-ue-r2v"/>
+                    <connections>
+                        <outlet property="imageView" destination="EtL-oa-eQa" id="htv-XB-wuH"/>
+                        <outlet property="nameCharacter" destination="lsX-4d-jWT" id="fgk-uE-TJh"/>
+                        <outlet property="nickName" destination="Lnv-Dl-Z5J" id="J3u-gI-feY"/>
+                        <outlet property="occupation" destination="8G4-nq-87b" id="R32-ME-PhF"/>
+                        <outlet property="status" destination="Hzc-T1-83g" id="ecI-59-L7d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIt-Hg-hnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3504.6728971962616" y="92.656587473002162"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="KC7-ag-jD6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g6M-44-lr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8hg-07-H8A" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="FcT-XB-5Mp"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="FcT-XB-5Mp">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Oss-BB-cOD"/>
+                    </navigationItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jne-al-f3n">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -160,6 +244,7 @@
                         <segue destination="MDL-Tr-mxr" kind="relationship" relationship="rootViewController" id="eci-0X-xiK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g6M-44-lr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1773.913043478261" y="93.75"/>
         </scene>

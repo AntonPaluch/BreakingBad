@@ -34,6 +34,13 @@ class CharactersViewController: UITableViewController {
         return cell
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailVC else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        detailVC.character = characters[indexPath.row]
+    }
+    
     private func fetchData(from url: String?) {
         NetworkManager.shared.fetchData(from: url) {  characters in
 //            self.characters.append(characters)
