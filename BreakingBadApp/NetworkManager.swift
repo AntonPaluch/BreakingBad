@@ -1,17 +1,21 @@
 //
-//  Networking.swift
+//  NetworkManager.swift
 //  BreakingBadApp
 //
-//  Created by Pandos on 01.03.2021.
+//  Created by Pandos on 04.03.2021.
 //
 
 import Foundation
 
-let url = "https://www.breakingbadapi.com/api/characters"
+class NetworkManager {
+    
+    static let shared = NetworkManager()
 
-extension CharactersViewController {
-    func fetchCharacters() {
-        guard let url = URL(string: url ) else { return }
+    private init() {}
+    
+    func fetchData(from url: String?, with complition: @escaping ([Character]) -> Void) {
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
@@ -22,17 +26,20 @@ extension CharactersViewController {
             if let response = response {
                 print(response)
             }
-            
+
             guard let data = data else { return }
-            
+
             do {
-                self.characters = try JSONDecoder().decode([Character].self, from: data)
+                let characters = try JSONDecoder().decode([Character].self, from: data)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    complition(characters)
                 }
             } catch let error {
                 print(error)
             }
-        }.resume()
+
+        } . resume()
+
     }
+
 }

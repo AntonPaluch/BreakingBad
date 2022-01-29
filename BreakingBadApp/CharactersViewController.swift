@@ -10,13 +10,16 @@ import UIKit
 class CharactersViewController: UITableViewController {
 
     var characters: [Character] = []
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 200
-        fetchCharacters() 
-
+     
+//        fetchCharacters()
+        
+        fetchData(from: "https://www.breakingbadapi.com/api/characters")
     }
+
 
     // MARK: - Table view data source
 
@@ -30,6 +33,15 @@ class CharactersViewController: UITableViewController {
         cell.configure(with: character)
         return cell
     }
+    
+    private func fetchData(from url: String?) {
+        NetworkManager.shared.fetchData(from: url) {  characters in
+//            self.characters.append(characters)
+            self.characters = characters
+            self.tableView.reloadData()
+        }
+    }
+    
     
 }
 

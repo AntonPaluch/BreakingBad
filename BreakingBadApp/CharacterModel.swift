@@ -13,3 +13,7 @@ struct Character: Decodable {
     let status: String?
 }
 
+enum URLS: String {
+    case breakingBadapi = "https://www.breakingbadapi.com/api/characters"
+}
+
